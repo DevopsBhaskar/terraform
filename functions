@@ -1,0 +1,22 @@
+> max(3,4,7)
+7
+> min(55,24,73)
+24
+> length(["Bhaskar", "sai"])
+2
+> join(" ", ["Bhaskara", "Rao", "A"])
+"Bhaskara Rao A"
+> split(" ", "Bhaskara Rao A")
+tolist([
+  "Bhaskara",
+  "Rao",
+  "A",
+])
+> merge({a=1, b=2}, {d=5, b=3, f=9})
+{
+  "a" = 1
+  "b" = 3
+  "d" = 5
+  "f" = 9
+}
+>

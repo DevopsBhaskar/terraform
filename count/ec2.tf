@@ -1,19 +1,16 @@
 resource "aws_instance" "terraform" {
-    #for_each = var.instances
-    for_each = toset(var.instances)
+    count = 4
     ami = "ami-0220d79f3f480ecf5"
-    #instance_type = each.value
     instance_type = "t3.micro"
-    vpc_security_group_ids = [aws_security_group.allow_al.id]
+    vpc_security_group_ids = [aws_security_group.terrall.id]
     tags = {
-        #Name = each.key
-        Name = each.value
-        Terraform = "true"
+        Name = var.instances[count.index]
+        Terraform = "true" # saying that creating instance using terraform
     }
 }
 
-resource "aws_security_group" "allow_al" {
-  name   = "allow-al"
+resource "aws_security_group" "terrall" {
+  name   = "terraform-all"
 
   egress {
     from_port        = 0 # from port 0 to to port 0 means all ports
@@ -30,7 +27,7 @@ resource "aws_security_group" "allow_al" {
   }
 
   tags = {
-    Name = "allow-all"
+    Name = "ter-all"
   }
 
 }
