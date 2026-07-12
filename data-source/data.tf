@@ -29,3 +29,7 @@ data "aws_instance" "mongodb" {
 output "mongodb_info" {
     value = data.aws_instance.mongodb.public_ip
 }
+
+# Changes to Outputs:
+#   + ami_id       = "ami-0220d79f3f480ecf5"
+#   + mongodb_info = "54.221.136.197"
